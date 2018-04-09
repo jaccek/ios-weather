@@ -1,0 +1,5 @@
+keys.plist
+
+Pods/*
+Weather.xcodeproj/*
+Weather.xcworkspace/*
