@@ -8,30 +8,36 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, CitySearchResult {
 
     @IBOutlet weak var temperatureView: UILabel!
     @IBOutlet weak var pressureView: UILabel!
     @IBOutlet weak var cityButton: UIButton!
     
+    let dataProvider = (UIApplication.shared.delegate as! AppDelegate)
+        .diProvider.provideWeatherDataProvider()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let dataProvider = (UIApplication.shared.delegate as! AppDelegate)
-            .diProvider.provideWeatherDataProvider()
-        
+        change(city: "Wrocław")
+    }
+    
+    private func change(city: String) {
         initView()
-        let city = "Chojnice"
         cityButton.titleLabel?.text = city
+        cityButton.setTitle(city, for: .normal)
         
         _ = dataProvider.getWeatherData(forCity: city)
-            .subscribe(onSuccess: { (weather: Weather) -> Void in
+            .subscribe(onSuccess: { (weather: Weather) in
                 if let temperature = weather.temperature {
                     self.temperatureView.text = String(format: "%.1f°C", temperature)
                 }
                 if let pressure = weather.pressure {
                     self.pressureView.text = String(format: "%d hPa", pressure)
                 }
+            }, onError: { (error: Swift.Error) in
+                print(error.localizedDescription)
             }, onCompleted: {})
     }
     
@@ -45,12 +51,19 @@ class MainViewController: UIViewController {
         
         let citySearchVC = storyboard?.instantiateViewController(withIdentifier: "CitySearchViewController") as! CitySearchViewController
         citySearchVC.actualCity = cityName!
+        citySearchVC.citySearchResult = self
         navigationController?.pushViewController(citySearchVC, animated: true)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func select(city: String?) {
+        if let selectedCity = city {
+            self.change(city: selectedCity)
+        }
     }
 }
 

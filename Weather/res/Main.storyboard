@@ -67,65 +67,48 @@
                         <outlet property="cityButton" destination="QYv-A1-hFz" id="jv0-vA-dJN"/>
                         <outlet property="pressureView" destination="kf4-Ry-LnQ" id="YIW-Rd-yZ3"/>
                         <outlet property="temperatureView" destination="EoG-yK-M6x" id="84V-7K-u5h"/>
-                        <segue destination="skh-0Z-RS8" kind="show" id="m3B-a4-8uc"/>
+                        <segue destination="pk1-Og-ILB" kind="show" id="bup-zA-Aey"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="377" y="134"/>
         </scene>
-        <!--Search City-->
-        <scene sceneID="zuk-xD-qxL">
+        <!--City Search View Controller-->
+        <scene sceneID="Byh-Ui-Uav">
             <objects>
-                <viewController storyboardIdentifier="CitySearchViewController" id="skh-0Z-RS8" customClass="CitySearchViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="rMR-by-rsm">
+                <tableViewController storyboardIdentifier="CitySearchViewController" id="pk1-Og-ILB" customClass="CitySearchViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="GAP-fL-53s">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mTJ-7A-IHm">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <searchBar key="tableHeaderView" contentMode="redraw" text="" id="1zq-hj-IWY">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                </searchBar>
-                                <label key="tableFooterView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aa3-6b-Pot">
-                                    <rect key="frame" x="0.0" y="603" width="375" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="XqI-5h-hPl">
-                                        <rect key="frame" x="0.0" y="72" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XqI-5h-hPl" id="a9b-Xo-5TM">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="mTJ-7A-IHm" firstAttribute="leading" secondItem="AoS-xR-myd" secondAttribute="leading" id="1cj-lF-0JR"/>
-                            <constraint firstItem="mTJ-7A-IHm" firstAttribute="top" secondItem="AoS-xR-myd" secondAttribute="top" id="2B3-Dx-LrP"/>
-                            <constraint firstItem="AoS-xR-myd" firstAttribute="trailing" secondItem="mTJ-7A-IHm" secondAttribute="trailing" id="UPU-fl-7jS"/>
-                            <constraint firstItem="AoS-xR-myd" firstAttribute="bottom" secondItem="mTJ-7A-IHm" secondAttribute="bottom" id="nAa-R6-uwD"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="AoS-xR-myd"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Search City" id="Jed-Qu-stc"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="hbg-ac-0oL">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SingleCityCell" id="r1Z-xr-jdV">
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="r1Z-xr-jdV" id="J2L-2l-PCy">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="pk1-Og-ILB" id="8tX-G8-ouI"/>
+                            <outlet property="delegate" destination="pk1-Og-ILB" id="kZk-NG-dZX"/>
+                        </connections>
+                    </tableView>
                     <connections>
-                        <outlet property="searchBar" destination="1zq-hj-IWY" id="snD-1y-fwF"/>
+                        <outlet property="searchBar" destination="hbg-ac-0oL" id="4RN-eT-e1Y"/>
                     </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qsq-cO-gtE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yi3-1O-bfc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1348" y="133.5832083958021"/>
+            <point key="canvasLocation" x="1232.8" y="133.5832083958021"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qoK-Kh-a4D">
