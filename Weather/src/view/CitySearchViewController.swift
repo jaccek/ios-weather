@@ -14,24 +14,36 @@ protocol CitySearchResult {
 
 class CitySearchViewController: UITableViewController {
     
+    let dataProvider = (UIApplication.shared.delegate as! AppDelegate)
+        .diProvider.provideCityDataProvider()
+    
     var actualCity = ""
     var citySearchResult: CitySearchResult?
+    var rememeredCities: [String] = []
     
     @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        searchBar.text = actualCity
+//        searchBar.text = actualCity
+        
+        _ = dataProvider.getCitiesNames()
+            .subscribe(onSuccess: { (cities) in
+                self.rememeredCities = cities
+                self.tableView.reloadData()
+            }, onError: { (error) in
+                print(error.localizedDescription)
+            }, onCompleted: {})
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return rememeredCities.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SingleCityCell", for: indexPath)
-        cell.textLabel?.text = "Chojnice"
+        cell.textLabel?.text = rememeredCities[indexPath.row]
         return cell
     }
     

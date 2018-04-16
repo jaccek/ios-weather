@@ -29,14 +29,14 @@ class MainViewController: UIViewController, CitySearchResult {
         cityButton.setTitle(city, for: .normal)
         
         _ = dataProvider.getWeatherData(forCity: city)
-            .subscribe(onSuccess: { (weather: Weather) in
+            .subscribe(onSuccess: { (weather) in
                 if let temperature = weather.temperature {
                     self.temperatureView.text = String(format: "%.1f°C", temperature)
                 }
                 if let pressure = weather.pressure {
                     self.pressureView.text = String(format: "%d hPa", pressure)
                 }
-            }, onError: { (error: Swift.Error) in
+            }, onError: { (error) in
                 print(error.localizedDescription)
             }, onCompleted: {})
     }

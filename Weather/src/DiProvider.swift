@@ -25,6 +25,10 @@ class DiProvider {
     }
     
     func provideWeatherDataProvider() -> WeatherDataProvider {
-        return NetworkWeatherDataProvider(apiKey: openWeatherMapApiKey)
+        return RemoteWeatherDataProvider(apiKey: openWeatherMapApiKey)
+    }
+    
+    func provideCityDataProvider() -> CityDataProvider {
+        return LocalCityDataProvider()
     }
 }
