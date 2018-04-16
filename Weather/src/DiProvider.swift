@@ -25,10 +25,12 @@ class DiProvider {
     }
     
     func provideWeatherDataProvider() -> WeatherDataProvider {
+        // TODO: this should be singleton
         return RemoteWeatherDataProvider(apiKey: openWeatherMapApiKey)
     }
     
     func provideCityDataProvider() -> CityDataProvider {
+        // TODO: this should be singleton
         return LocalCityDataProvider()
     }
 }

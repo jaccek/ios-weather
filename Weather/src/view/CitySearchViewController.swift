@@ -12,25 +12,26 @@ protocol CitySearchResult {
     func select(city: String?)
 }
 
-class CitySearchViewController: UITableViewController {
+class CitySearchViewController: UITableViewController, UISearchBarDelegate {
     
     let dataProvider = (UIApplication.shared.delegate as! AppDelegate)
         .diProvider.provideCityDataProvider()
     
     var actualCity = ""
     var citySearchResult: CitySearchResult?
-    var rememeredCities: [String] = []
+    var allRememeredCities: [String] = []
+    var filteredCities: [String] = []
     
     @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
-//        searchBar.text = actualCity
+        self.searchBar.delegate = self
         
         _ = dataProvider.getCitiesNames()
             .subscribe(onSuccess: { (cities) in
-                self.rememeredCities = cities
+                self.allRememeredCities = cities
                 self.tableView.reloadData()
             }, onError: { (error) in
                 print(error.localizedDescription)
@@ -38,12 +39,12 @@ class CitySearchViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return rememeredCities.count
+        return filteredCities.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SingleCityCell", for: indexPath)
-        cell.textLabel?.text = rememeredCities[indexPath.row]
+        cell.textLabel?.text = filteredCities[indexPath.row]
         return cell
     }
     
@@ -51,5 +52,18 @@ class CitySearchViewController: UITableViewController {
         let cell = tableView.cellForRow(at: indexPath)
         citySearchResult?.select(city: cell?.textLabel?.text)
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.filteredCities = filterCities(byName: searchText)
+        self.tableView.reloadData()
+    }
+    
+    private func filterCities(byName query: String) -> [String] {
+        if (query.count == 0) {
+            return allRememeredCities
+        }
+        // TODO: ignore polish chars
+        return allRememeredCities.filter { (city) in city.lowercased().contains(query.lowercased()) }
     }
 }
