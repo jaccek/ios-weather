@@ -11,6 +11,7 @@ import UIKit
 class DiProvider {
     
     private let openWeatherMapApiKey: String
+    private let cityDataProvider: CityDataProvider = LocalCityDataProvider()
     
     init() {
         var keys: NSDictionary?
@@ -30,7 +31,6 @@ class DiProvider {
     }
     
     func provideCityDataProvider() -> CityDataProvider {
-        // TODO: this should be singleton
-        return LocalCityDataProvider()
+        return cityDataProvider
     }
 }

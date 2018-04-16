@@ -11,7 +11,17 @@ import RxSwift
 
 class LocalCityDataProvider: CityDataProvider {
     
+    // TODO: make it persistance
+    var memoryCache = ["Chojnice", "Świdnica", "Wrocław", "Gdańsk", "New York"]
+    
     func getCitiesNames() -> Maybe<[String]> {
-        return Maybe.just(["Chojnice", "Świdnica", "Wrocław", "Gdańsk", "New York"])
+        return Maybe.just(memoryCache)
+    }
+    
+    func save(cityName: String) -> Completable {
+        if (!memoryCache.contains(cityName)) {
+            memoryCache.append(cityName)
+        }
+        return Completable.empty()
     }
 }

@@ -12,4 +12,6 @@ import RxSwift
 protocol CityDataProvider {
     
     func getCitiesNames() -> Maybe<[String]>
+    
+    func save(cityName: String) -> Completable
 }

@@ -26,12 +26,13 @@ class CitySearchViewController: UITableViewController, UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         self.searchBar.delegate = self
         
         _ = dataProvider.getCitiesNames()
             .subscribe(onSuccess: { (cities) in
                 self.allRememeredCities = cities
+                self.filteredCities = cities
                 self.tableView.reloadData()
             }, onError: { (error) in
                 print(error.localizedDescription)
@@ -50,7 +51,13 @@ class CitySearchViewController: UITableViewController, UISearchBarDelegate {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
-        citySearchResult?.select(city: cell?.textLabel?.text)
+        let cityName = cell?.textLabel?.text
+        
+        if let name = cityName {
+            citySearchResult?.select(city: name)
+            _ = dataProvider.save(cityName: name)
+        }
+        
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -60,10 +67,14 @@ class CitySearchViewController: UITableViewController, UISearchBarDelegate {
     }
     
     private func filterCities(byName query: String) -> [String] {
-        if (query.count == 0) {
+        if (query.isEmpty) {
             return allRememeredCities
         }
         // TODO: ignore polish chars
-        return allRememeredCities.filter { (city) in city.lowercased().contains(query.lowercased()) }
+        var result = allRememeredCities.filter { (city) in city.lowercased().contains(query.lowercased()) }
+        if (result.isEmpty) {
+            result.append(query)
+        }
+        return result
     }
 }
