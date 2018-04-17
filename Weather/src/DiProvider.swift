@@ -11,7 +11,7 @@ import UIKit
 class DiProvider {
     
     private let openWeatherMapApiKey: String
-    private let cityDataProvider: CityDataProvider = LocalCityDataProvider()
+    private let cityDataProvider: CityModel = LocalCityRepository()
     
     init() {
         var keys: NSDictionary?
@@ -25,12 +25,12 @@ class DiProvider {
         }
     }
     
-    func provideWeatherDataProvider() -> WeatherDataProvider {
+    func provideWeatherDataProvider() -> WeatherModel {
         // TODO: this should be singleton
         return RemoteWeatherDataProvider(apiKey: openWeatherMapApiKey)
     }
     
-    func provideCityDataProvider() -> CityDataProvider {
+    func provideCityDataProvider() -> CityModel {
         return cityDataProvider
     }
 }

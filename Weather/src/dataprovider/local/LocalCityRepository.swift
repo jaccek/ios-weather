@@ -9,7 +9,7 @@
 import Foundation
 import RxSwift
 
-class LocalCityDataProvider: CityDataProvider {
+class LocalCityRepository: CityModel {
     
     // TODO: make it persistance
     var memoryCache = ["Chojnice", "Świdnica", "Wrocław", "Gdańsk", "New York"]

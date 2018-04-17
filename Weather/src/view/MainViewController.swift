@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import RxSwift
 
 class MainViewController: UIViewController, CitySearchResult {
 
     @IBOutlet weak var temperatureView: UILabel!
     @IBOutlet weak var pressureView: UILabel!
     @IBOutlet weak var cityButton: UIButton!
+    @IBOutlet weak var weatherIconView: UIImageView!
     
     let dataProvider = (UIApplication.shared.delegate as! AppDelegate)
         .diProvider.provideWeatherDataProvider()
@@ -35,6 +37,21 @@ class MainViewController: UIViewController, CitySearchResult {
                 }
                 if let pressure = weather.pressure {
                     self.pressureView.text = String(format: "%d hPa", pressure)
+                }
+                if let icon = weather.iconId {
+                    // TODO: run in background
+                    _ = Single.just(icon)
+                        .map { (id) in self.dataProvider.getIconUrl(iconId: id) }
+                        .map { (url) in URL(string: url)! }
+                        .map { (url) in try! Data(contentsOf: url) }
+                        .map { (data) in UIImage(data: data)! }
+                        .subscribe(onSuccess: { (image) in
+                            self.weatherIconView.image = image
+                        }, onError: { (error) in
+                            // TODO: handle exception
+                            print(error.localizedDescription)
+                        })
+                    
                 }
             }, onError: { (error) in
                 print(error.localizedDescription)

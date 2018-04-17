@@ -41,6 +41,10 @@
                                     <action selector="onCityNameClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FeP-Yq-vZU"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FVg-zi-Mcn">
+                                <rect key="frame" x="16" y="96" width="58" height="58"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -67,12 +71,13 @@
                         <outlet property="cityButton" destination="QYv-A1-hFz" id="jv0-vA-dJN"/>
                         <outlet property="pressureView" destination="kf4-Ry-LnQ" id="YIW-Rd-yZ3"/>
                         <outlet property="temperatureView" destination="EoG-yK-M6x" id="84V-7K-u5h"/>
+                        <outlet property="weatherIconView" destination="FVg-zi-Mcn" id="m2R-Dg-O51"/>
                         <segue destination="pk1-Og-ILB" kind="show" id="bup-zA-Aey"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="377" y="134"/>
+            <point key="canvasLocation" x="376.80000000000001" y="133.5832083958021"/>
         </scene>
         <!--City Search View Controller-->
         <scene sceneID="Byh-Ui-Uav">

@@ -9,7 +9,10 @@
 import UIKit
 import RxSwift
 
-protocol WeatherDataProvider {
+protocol WeatherModel {
     
     func getWeatherData(forCity: String) -> Maybe<Weather>
+    
+    // TODO: move to separate model
+    func getIconUrl(iconId: String) -> String
 }

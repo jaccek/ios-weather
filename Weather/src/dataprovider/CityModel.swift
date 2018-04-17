@@ -9,7 +9,7 @@
 import Foundation
 import RxSwift
 
-protocol CityDataProvider {
+protocol CityModel {
     
     func getCitiesNames() -> Maybe<[String]>
     
