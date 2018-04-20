@@ -24,6 +24,9 @@
 		E59A34F52042E0CF00D4842C /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59A34F22042E0CF00D4842C /* WeatherModel.swift */; };
 		E5BB4541207BA2D70068A5CB /* CitySearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BB4540207BA2D70068A5CB /* CitySearchViewController.swift */; };
 		E5BB4543207BAD240068A5CB /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = E5BB4542207BAD240068A5CB /* .gitignore */; };
+		E5D7CF20208A279400B9D869 /* WireOne.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5D7CF1F208A279400B9D869 /* WireOne.ttf */; };
+		E5D7CF24208A2AF300B9D869 /* cb2b0-ubnbk.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E5D7CF23208A2AF300B9D869 /* cb2b0-ubnbk.pdf */; };
+		E5D7CF27208A2E4C00B9D869 /* ic_sunny.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E5D7CF26208A2E4C00B9D869 /* ic_sunny.pdf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +72,9 @@
 		E59A34F22042E0CF00D4842C /* WeatherModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		E5BB4540207BA2D70068A5CB /* CitySearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySearchViewController.swift; sourceTree = "<group>"; };
 		E5BB4542207BAD240068A5CB /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		E5D7CF1F208A279400B9D869 /* WireOne.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = WireOne.ttf; sourceTree = "<group>"; };
+		E5D7CF23208A2AF300B9D869 /* cb2b0-ubnbk.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "cb2b0-ubnbk.pdf"; sourceTree = "<group>"; };
+		E5D7CF26208A2E4C00B9D869 /* ic_sunny.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = ic_sunny.pdf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,10 +232,29 @@
 		E59A34EF2042E07100D4842C /* res */ = {
 			isa = PBXGroup;
 			children = (
+				E5D7CF28208A2E5B00B9D869 /* fonts */,
+				E5D7CF25208A2E4300B9D869 /* icons */,
+				E5D7CF23208A2AF300B9D869 /* cb2b0-ubnbk.pdf */,
 				E51023AD204358F5005C3D4E /* Main.storyboard */,
 				E51023AB2043557E005C3D4E /* bg.jpeg */,
 			);
 			path = res;
+			sourceTree = "<group>";
+		};
+		E5D7CF25208A2E4300B9D869 /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				E5D7CF26208A2E4C00B9D869 /* ic_sunny.pdf */,
+			);
+			path = icons;
+			sourceTree = "<group>";
+		};
+		E5D7CF28208A2E5B00B9D869 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				E5D7CF1F208A279400B9D869 /* WireOne.ttf */,
+			);
+			path = fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -346,7 +371,10 @@
 				E51023AC2043557E005C3D4E /* bg.jpeg in Resources */,
 				E59A34C72042DF0600D4842C /* Assets.xcassets in Resources */,
 				E59823372042E5EE001FEC78 /* keys.plist in Resources */,
+				E5D7CF27208A2E4C00B9D869 /* ic_sunny.pdf in Resources */,
+				E5D7CF20208A279400B9D869 /* WireOne.ttf in Resources */,
 				E51023AE204358F5005C3D4E /* Main.storyboard in Resources */,
+				E5D7CF24208A2AF300B9D869 /* cb2b0-ubnbk.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
