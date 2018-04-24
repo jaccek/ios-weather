@@ -6,8 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -35,13 +35,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1012 hPa" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kf4-Ry-LnQ">
-                                <rect key="frame" x="16" y="475" width="343" height="39"/>
+                                <rect key="frame" x="16" y="476" width="343" height="38"/>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="32"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QYv-A1-hFz">
-                                <rect key="frame" x="16" y="416" width="343" height="51"/>
+                                <rect key="frame" x="16" y="417" width="343" height="51"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                 <state key="normal" title="Świdnica">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -50,10 +50,10 @@
                                     <action selector="onCityNameClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FeP-Yq-vZU"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_sunny" translatesAutoresizingMaskIntoConstraints="NO" id="FVg-zi-Mcn">
-                                <rect key="frame" x="87" y="150" width="200" height="200"/>
+                            <imageView userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_broken_clouds" translatesAutoresizingMaskIntoConstraints="NO" id="FVg-zi-Mcn">
+                                <rect key="frame" x="-269.5" y="80" width="571" height="571"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="FVg-zi-Mcn" secondAttribute="height" multiplier="200:200" id="gfG-TX-CTy"/>
+                                    <constraint firstAttribute="width" secondItem="FVg-zi-Mcn" secondAttribute="height" multiplier="1:1" id="bWX-fz-4yl"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -62,12 +62,13 @@
                             <constraint firstItem="kf4-Ry-LnQ" firstAttribute="top" secondItem="QYv-A1-hFz" secondAttribute="bottom" constant="8" id="5VI-en-wua"/>
                             <constraint firstItem="QYv-A1-hFz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="9Mh-ys-0zK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kf4-Ry-LnQ" secondAttribute="trailing" constant="16" id="G3p-A3-65s"/>
-                            <constraint firstItem="FVg-zi-Mcn" firstAttribute="centerX" secondItem="QYv-A1-hFz" secondAttribute="centerX" id="R34-fm-bZE"/>
-                            <constraint firstItem="FVg-zi-Mcn" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.75" id="Rrq-4j-d5p"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="FVg-zi-Mcn" secondAttribute="bottom" constant="16" id="Gbl-v3-ttI"/>
+                            <constraint firstAttribute="leading" secondItem="FVg-zi-Mcn" secondAttribute="centerX" constant="-16" id="I4G-JF-VcQ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EoG-yK-M6x" secondAttribute="trailing" constant="16" id="ToU-IJ-z19"/>
                             <constraint firstItem="EoG-yK-M6x" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Zsz-Uw-Bkv"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QYv-A1-hFz" secondAttribute="trailing" constant="16" id="ehC-Vx-BDn"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="EoG-yK-M6x" secondAttribute="bottom" constant="16" id="phi-h6-bla"/>
+                            <constraint firstItem="FVg-zi-Mcn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="r8Z-U1-hbA"/>
                             <constraint firstItem="EoG-yK-M6x" firstAttribute="top" secondItem="kf4-Ry-LnQ" secondAttribute="bottom" constant="8" id="t7m-kh-u4k"/>
                             <constraint firstItem="kf4-Ry-LnQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="yxk-0F-ATY"/>
                         </constraints>
@@ -122,7 +123,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yi3-1O-bfc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1232.8" y="133.5832083958021"/>
+            <point key="canvasLocation" x="1671" y="139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qoK-Kh-a4D">
@@ -144,6 +145,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ic_sunny" width="200" height="200"/>
+        <image name="ic_broken_clouds" width="210" height="200"/>
     </resources>
 </document>

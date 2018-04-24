@@ -38,20 +38,36 @@ class MainViewController: UIViewController, CitySearchResult {
                 if let pressure = weather.pressure {
                     self.pressureView.text = String(format: "%d hPa", pressure)
                 }
-                if let icon = weather.iconId {
-                    // TODO: run in background
-                    _ = Single.just(icon)
-                        .map { (id) in self.dataProvider.getIconUrl(iconId: id) }
-                        .map { (url) in URL(string: url)! }
-                        .map { (url) in try! Data(contentsOf: url) }
-                        .map { (data) in UIImage(data: data)! }
-                        .subscribe(onSuccess: { (image) in
-                            self.weatherIconView.image = image
-                        }, onError: { (error) in
-                            // TODO: handle exception
-                            print(error.localizedDescription)
-                        })
-                    
+                if let cityName = weather.cityName {
+                    self.cityButton.titleLabel?.text = cityName
+                }
+                if let icon = weather.icon {
+                    switch (icon) {
+                    case .brokenClouds:
+                        self.weatherIconView.image = #imageLiteral(resourceName: "ic_broken_clouds")
+                    case .clearSkyDay:
+                        self.weatherIconView.image = #imageLiteral(resourceName: "ic_clear_sky_day")
+                    case .clearSkyNight:
+                        self.weatherIconView.image = #imageLiteral(resourceName: "ic_clear_sky_night")
+                    case .fewCloudsDay:
+                        self.weatherIconView.image = #imageLiteral(resourceName: "ic_few_clouds_day")
+                    case .fewCloudsNight:
+                        self.weatherIconView.image = #imageLiteral(resourceName: "ic_few_clouds_night")
+                    case .scatteredClouds:
+                        self.weatherIconView.image = #imageLiteral(resourceName: "ic_scattered_clouds")
+                    case .showerRain:
+                        self.weatherIconView.image = #imageLiteral(resourceName: "ic_shower_rain")
+                    case .rainDay:
+                        self.weatherIconView.image = #imageLiteral(resourceName: "ic_shower_rain")
+                    case .rainNight:
+                        self.weatherIconView.image = #imageLiteral(resourceName: "ic_shower_rain")
+                    case .thunderstorm:
+                        self.weatherIconView.image = #imageLiteral(resourceName: "ic_thunderstorm")
+                    case .snow:
+                        self.weatherIconView.image = #imageLiteral(resourceName: "ic_snow")
+                    case .mist:
+                        self.weatherIconView.image = #imageLiteral(resourceName: "ic_mist")
+                    }
                 }
             }, onError: { (error) in
                 print(error.localizedDescription)
@@ -61,6 +77,7 @@ class MainViewController: UIViewController, CitySearchResult {
     private func initView() {
         self.temperatureView.text = "?°C"
         self.pressureView.text = "? hPa"
+        self.weatherIconView.image = nil
     }
     
     @IBAction func onCityNameClicked(_ sender: Any) {
