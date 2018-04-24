@@ -34,6 +34,7 @@
 		E59A34F52042E0CF00D4842C /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59A34F22042E0CF00D4842C /* WeatherModel.swift */; };
 		E5BB4541207BA2D70068A5CB /* CitySearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BB4540207BA2D70068A5CB /* CitySearchViewController.swift */; };
 		E5BB4543207BAD240068A5CB /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = E5BB4542207BAD240068A5CB /* .gitignore */; };
+		E5D358C3208F3B01002AC490 /* if_question_2625632.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E5D358C2208F3B01002AC490 /* if_question_2625632.pdf */; };
 		E5D7CF20208A279400B9D869 /* WireOne.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5D7CF1F208A279400B9D869 /* WireOne.ttf */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +91,7 @@
 		E59A34F22042E0CF00D4842C /* WeatherModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		E5BB4540207BA2D70068A5CB /* CitySearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySearchViewController.swift; sourceTree = "<group>"; };
 		E5BB4542207BAD240068A5CB /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		E5D358C2208F3B01002AC490 /* if_question_2625632.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = if_question_2625632.pdf; sourceTree = "<group>"; };
 		E5D7CF1F208A279400B9D869 /* WireOne.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = WireOne.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -260,6 +262,7 @@
 		E5D7CF25208A2E4300B9D869 /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				E5D358C2208F3B01002AC490 /* if_question_2625632.pdf */,
 				E51C8114208E205A00F9D3E1 /* if_cloudy_2671738.pdf */,
 				E51C811B208E205B00F9D3E1 /* if_cloudy_day_2671737.pdf */,
 				E51C8117208E205B00F9D3E1 /* if_cloudy_night_2671736.pdf */,
@@ -405,6 +408,7 @@
 				E5D7CF20208A279400B9D869 /* WireOne.ttf in Resources */,
 				E51C8123208E205B00F9D3E1 /* if_cloudy_storm_2671744.pdf in Resources */,
 				E51C811E208E205B00F9D3E1 /* if_cloudy_part.pdf in Resources */,
+				E5D358C3208F3B01002AC490 /* if_question_2625632.pdf in Resources */,
 				E51023AE204358F5005C3D4E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

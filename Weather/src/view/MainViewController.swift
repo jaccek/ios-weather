@@ -41,6 +41,8 @@ class MainViewController: UIViewController, CitySearchResult {
                 if let cityName = weather.cityName {
                     self.cityButton.titleLabel?.text = cityName
                 }
+                
+                self.weatherIconView.image = #imageLiteral(resourceName: "ic_unknown")
                 if let icon = weather.icon {
                     switch (icon) {
                     case .brokenClouds:
@@ -77,7 +79,7 @@ class MainViewController: UIViewController, CitySearchResult {
     private func initView() {
         self.temperatureView.text = "?°C"
         self.pressureView.text = "? hPa"
-        self.weatherIconView.image = nil
+        self.weatherIconView.image = #imageLiteral(resourceName: "ic_unknown")
     }
     
     @IBAction func onCityNameClicked(_ sender: Any) {
